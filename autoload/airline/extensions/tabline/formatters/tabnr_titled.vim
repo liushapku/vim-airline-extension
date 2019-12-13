@@ -14,12 +14,12 @@ endfunction
 " g:airline#extensions#tabline#tabnr_formatter = 'IGNORE_tabnr_title'
 " formatter for the tabnr
 " :h airline => search for tab_nr_type
-function! airline#extensions#tabline#formatters#IGNORE_tabnr_titled#format(tab_nr_type, tabnr)
+function! airline#extensions#tabline#formatters#tabnr_titled#format(tab_nr_type, tabnr)
   "let title = printf('%%{g:TablineTitle(%d)}', a:tabnr)
   let title = s:TablineTitle(a:tabnr)
   "let title = (g:airline_symbols.space).title
   if a:tab_nr_type == 1 " tabnr
-    return title.a:tabnr . "==="
+    return title.a:tabnr
   if a:tab_nr_type == 0 " # number of splits
     return title.len(tabpagebuflist(a:tabnr))
   elseif a:tab_nr_type == 2 && tabpagenr('$') <= 8
